@@ -1,0 +1,10 @@
+.selected {
+    background-color: gold;
+}
+
+.selectedHover {
+    background-color: limegreen;
+}
+.hover {
+    background-color: deepskyblue;
+}

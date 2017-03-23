@@ -1,0 +1,37 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Leaderboard</title>
+
+</head>
+<body>
+    <h1>Leaderboard</h1>
+        <!-- Insert Template into page //-->
+        {{>addPlayerForm}}
+        {{>leaderboard}}
+</body>
+
+<!-- Main App Template //-->
+<template name="leaderboard">
+    <ul>
+        <!-- Loop through each player in the database collection //-->
+        {{#each player}}
+            <!-- add .selected to class when clicked
+                print the name and score of each player //-->
+            <li class="player {{selectedClass}}">{{name}}: {{score}}</li>
+       {{/each}}
+        {{#if selectedPlayer}}
+        <li>Selected Player: {{selectedPlayer.name}}</li>
+        <li><button class="increment">Give 5 points</button>&nbsp;
+            <button class="decrement">Take 5 points</button>&nbsp;
+            <button class="remove">Remove Player</button>
+        </li>
+        {{/if}}
+    </ul>
+</template>
+
+<template name="addPlayerForm">
+    <form>
+        Name: <input type="text" name="playerName">
+        &nbsp;<input type="submit" value="Add Player">
+    </form>
+</template>
