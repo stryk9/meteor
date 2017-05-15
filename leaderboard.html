@@ -6,12 +6,14 @@
 <body>
     <h1>Leaderboard</h1>
         <!-- Insert Template into page //-->
-        {{>addPlayerForm}}
+    <p>{{>loginButtons}}</p>
         {{>leaderboard}}
 </body>
 
 <!-- Main App Template //-->
 <template name="leaderboard">
+    {{#if currentUser}}
+    {{>addPlayerForm}}
     <ul>
         <!-- Loop through each player in the database collection //-->
         {{#each player}}
@@ -27,6 +29,9 @@
         </li>
         {{/if}}
     </ul>
+        {{else}}
+        <p>You must be logged-in to view this content.</p>
+    {{/if}}
 </template>
 
 <template name="addPlayerForm">
